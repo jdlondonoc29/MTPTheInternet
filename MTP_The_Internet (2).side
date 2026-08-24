@@ -1,0 +1,238 @@
+{
+  "id": "b1e2c3a4-1111-4a2b-9c3d-0a1b2c3d4e5f",
+  "version": "2.0",
+  "name": "MTP_The_Internet",
+  "url": "https://the-internet.herokuapp.com",
+  "tests": [
+    {
+      "id": "t1",
+      "name": "TC-01_Login_valido",
+      "commands": [
+        {
+          "id": "c1",
+          "comment": "",
+          "command": "open",
+          "target": "/login",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "c2",
+          "comment": "",
+          "command": "type",
+          "target": "id=username",
+          "targets": [
+            [
+              "id=username",
+              "id"
+            ],
+            [
+              "name=username",
+              "name"
+            ],
+            [
+              "css=#username",
+              "css:finder"
+            ]
+          ],
+          "value": "tomsmith"
+        },
+        {
+          "id": "c3",
+          "comment": "",
+          "command": "type",
+          "target": "id=password",
+          "targets": [
+            [
+              "id=password",
+              "id"
+            ],
+            [
+              "name=password",
+              "name"
+            ],
+            [
+              "css=#password",
+              "css:finder"
+            ]
+          ],
+          "value": "SuperSecretPassword!"
+        },
+        {
+          "id": "c4",
+          "comment": "",
+          "command": "click",
+          "target": "css=button[type='submit']",
+          "targets": [
+            [
+              "css=button.radius",
+              "css:finder"
+            ],
+            [
+              "xpath=//button[@type='submit']",
+              "xpath:attributes"
+            ]
+          ],
+          "value": ""
+        },
+        {
+          "id": "c4b",
+          "comment": "",
+          "command": "pause",
+          "target": "1500",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "c5",
+          "comment": "",
+          "command": "assertText",
+          "target": "id=flash-messages",
+          "targets": [
+            [
+              "id=flash-messages",
+              "id"
+            ],
+            [
+              "css=#flash-messages",
+              "css:finder"
+            ]
+          ],
+          "value": "glob:*You logged into a secure area!*"
+        }
+      ]
+    },
+    {
+      "id": "t2",
+      "name": "TC-02_Login_password_invalido",
+      "commands": [
+        {
+          "id": "c6",
+          "comment": "",
+          "command": "open",
+          "target": "/login",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "c7",
+          "comment": "",
+          "command": "type",
+          "target": "id=username",
+          "targets": [
+            [
+              "id=username",
+              "id"
+            ]
+          ],
+          "value": "tomsmith"
+        },
+        {
+          "id": "c8",
+          "comment": "",
+          "command": "type",
+          "target": "id=password",
+          "targets": [
+            [
+              "id=password",
+              "id"
+            ]
+          ],
+          "value": "passwordIncorrecto"
+        },
+        {
+          "id": "c9",
+          "comment": "",
+          "command": "click",
+          "target": "css=button[type='submit']",
+          "targets": [
+            [
+              "css=button.radius",
+              "css:finder"
+            ]
+          ],
+          "value": ""
+        },
+        {
+          "id": "c9b",
+          "comment": "",
+          "command": "pause",
+          "target": "1500",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "c10",
+          "comment": "",
+          "command": "assertText",
+          "target": "id=flash-messages",
+          "targets": [
+            [
+              "id=flash-messages",
+              "id"
+            ]
+          ],
+          "value": "glob:*Your password is invalid!*"
+        }
+      ]
+    },
+    {
+      "id": "t3",
+      "name": "TC-07_Input_no_numerico",
+      "commands": [
+        {
+          "id": "c11",
+          "comment": "",
+          "command": "open",
+          "target": "/inputs",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "c12",
+          "comment": "",
+          "command": "type",
+          "target": "css=input[type='number']",
+          "targets": [
+            [
+              "css=input[type='number']",
+              "css:finder"
+            ]
+          ],
+          "value": "abc"
+        },
+        {
+          "id": "c13",
+          "comment": "",
+          "command": "assertValue",
+          "target": "css=input[type='number']",
+          "targets": [
+            [
+              "css=input[type='number']",
+              "css:finder"
+            ]
+          ],
+          "value": ""
+        }
+      ]
+    }
+  ],
+  "suites": [
+    {
+      "id": "s1",
+      "name": "Suite_Regresion_Minima",
+      "persistSession": false,
+      "parallel": false,
+      "timeout": 300,
+      "tests": [
+        "t1",
+        "t2",
+        "t3"
+      ]
+    }
+  ],
+  "urls": [
+    "https://the-internet.herokuapp.com"
+  ],
+  "plugins": []
+}
